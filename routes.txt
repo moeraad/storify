@@ -1,0 +1,75 @@
++--------+-----------+------------------------------+--------------------+------------------------------------------------------------------------+--------------+
+| Domain | Method    | URI                          | Name               | Action                                                                 | Middleware   |
++--------+-----------+------------------------------+--------------------+------------------------------------------------------------------------+--------------+
+|        | GET|HEAD  | /                            |                    | App\Http\Controllers\HomeController@index                              | web,auth     |
+|        | GET|HEAD  | api/user                     |                    | Closure                                                                | api,auth:api |
+|        | POST      | comment                      | comment.store      | App\Http\Controllers\CommentController@store                           | web,auth     |
+|        | GET|HEAD  | comment                      | comment.index      | App\Http\Controllers\CommentController@index                           | web,auth     |
+|        | GET|HEAD  | comment/create               | comment.create     | App\Http\Controllers\CommentController@create                          | web,auth     |
+|        | GET|HEAD  | comment/{comment}            | comment.show       | App\Http\Controllers\CommentController@show                            | web,auth     |
+|        | PUT|PATCH | comment/{comment}            | comment.update     | App\Http\Controllers\CommentController@update                          | web,auth     |
+|        | DELETE    | comment/{comment}            | comment.destroy    | App\Http\Controllers\CommentController@destroy                         | web,auth     |
+|        | GET|HEAD  | comment/{comment}/edit       | comment.edit       | App\Http\Controllers\CommentController@edit                            | web,auth     |
+|        | GET|HEAD  | experience                   | experience.index   | App\Http\Controllers\ExperienceController@index                        | web,auth     |
+|        | POST      | experience                   | experience.store   | App\Http\Controllers\ExperienceController@store                        | web,auth     |
+|        | GET|HEAD  | experience/create            | experience.create  | App\Http\Controllers\ExperienceController@create                       | web,auth     |
+|        | DELETE    | experience/{experience}      | experience.destroy | App\Http\Controllers\ExperienceController@destroy                      | web,auth     |
+|        | PUT|PATCH | experience/{experience}      | experience.update  | App\Http\Controllers\ExperienceController@update                       | web,auth     |
+|        | GET|HEAD  | experience/{experience}      | experience.show    | App\Http\Controllers\ExperienceController@show                         | web,auth     |
+|        | GET|HEAD  | experience/{experience}/edit | experience.edit    | App\Http\Controllers\ExperienceController@edit                         | web,auth     |
+|        | GET|HEAD  | feeds                        |                    | App\Http\Controllers\FeedsController@index                             | web,auth     |
+|        | GET|HEAD  | home                         | home               | App\Http\Controllers\HomeController@index                              | web,auth     |
+|        | POST      | interest                     | interest.store     | App\Http\Controllers\InterestController@store                          | web,auth     |
+|        | GET|HEAD  | interest                     | interest.index     | App\Http\Controllers\InterestController@index                          | web,auth     |
+|        | GET|HEAD  | interest/create              | interest.create    | App\Http\Controllers\InterestController@create                         | web,auth     |
+|        | DELETE    | interest/{interest}          | interest.destroy   | App\Http\Controllers\InterestController@destroy                        | web,auth     |
+|        | PUT|PATCH | interest/{interest}          | interest.update    | App\Http\Controllers\InterestController@update                         | web,auth     |
+|        | GET|HEAD  | interest/{interest}          | interest.show      | App\Http\Controllers\InterestController@show                           | web,auth     |
+|        | GET|HEAD  | interest/{interest}/edit     | interest.edit      | App\Http\Controllers\InterestController@edit                           | web,auth     |
+|        | POST      | location                     | location.store     | App\Http\Controllers\LocationController@store                          | web,auth     |
+|        | GET|HEAD  | location                     | location.index     | App\Http\Controllers\LocationController@index                          | web,auth     |
+|        | GET|HEAD  | location/create              | location.create    | App\Http\Controllers\LocationController@create                         | web,auth     |
+|        | DELETE    | location/{location}          | location.destroy   | App\Http\Controllers\LocationController@destroy                        | web,auth     |
+|        | GET|HEAD  | location/{location}          | location.show      | App\Http\Controllers\LocationController@show                           | web,auth     |
+|        | PUT|PATCH | location/{location}          | location.update    | App\Http\Controllers\LocationController@update                         | web,auth     |
+|        | GET|HEAD  | location/{location}/edit     | location.edit      | App\Http\Controllers\LocationController@edit                           | web,auth     |
+|        | POST      | login                        |                    | App\Http\Controllers\Auth\LoginController@login                        | web,guest    |
+|        | GET|HEAD  | login                        | login              | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest    |
+|        | POST      | logout                       | logout             | App\Http\Controllers\Auth\LoginController@logout                       | web          |
+|        | POST      | message                      | message.store      | App\Http\Controllers\MessageController@store                           | web,auth     |
+|        | GET|HEAD  | message                      | message.index      | App\Http\Controllers\MessageController@index                           | web,auth     |
+|        | GET|HEAD  | message/create               | message.create     | App\Http\Controllers\MessageController@create                          | web,auth     |
+|        | PUT|PATCH | message/{message}            | message.update     | App\Http\Controllers\MessageController@update                          | web,auth     |
+|        | DELETE    | message/{message}            | message.destroy    | App\Http\Controllers\MessageController@destroy                         | web,auth     |
+|        | GET|HEAD  | message/{message}            | message.show       | App\Http\Controllers\MessageController@show                            | web,auth     |
+|        | GET|HEAD  | message/{message}/edit       | message.edit       | App\Http\Controllers\MessageController@edit                            | web,auth     |
+|        | POST      | password/email               | password.email     | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest    |
+|        | GET|HEAD  | password/reset               | password.request   | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest    |
+|        | POST      | password/reset               |                    | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest    |
+|        | GET|HEAD  | password/reset/{token}       | password.reset     | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest    |
+|        | POST      | post                         | post.store         | App\Http\Controllers\PostController@store                              | web,auth     |
+|        | GET|HEAD  | post                         | post.index         | App\Http\Controllers\PostController@index                              | web,auth     |
+|        | GET|HEAD  | post/create                  | post.create        | App\Http\Controllers\PostController@create                             | web,auth     |
+|        | GET|HEAD  | post/{post}                  | post.show          | App\Http\Controllers\PostController@show                               | web,auth     |
+|        | PUT|PATCH | post/{post}                  | post.update        | App\Http\Controllers\PostController@update                             | web,auth     |
+|        | DELETE    | post/{post}                  | post.destroy       | App\Http\Controllers\PostController@destroy                            | web,auth     |
+|        | GET|HEAD  | post/{post}/edit             | post.edit          | App\Http\Controllers\PostController@edit                               | web,auth     |
+|        | GET|HEAD  | profile                      |                    | App\Http\Controllers\profileController@index                           | web,auth     |
+|        | POST      | register                     |                    | App\Http\Controllers\Auth\RegisterController@register                  | web,guest    |
+|        | GET|HEAD  | register                     | register           | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest    |
+|        | POST      | school                       | school.store       | App\Http\Controllers\SchoolController@store                            | web,auth     |
+|        | GET|HEAD  | school                       | school.index       | App\Http\Controllers\SchoolController@index                            | web,auth     |
+|        | GET|HEAD  | school/create                | school.create      | App\Http\Controllers\SchoolController@create                           | web,auth     |
+|        | DELETE    | school/{school}              | school.destroy     | App\Http\Controllers\SchoolController@destroy                          | web,auth     |
+|        | PUT|PATCH | school/{school}              | school.update      | App\Http\Controllers\SchoolController@update                           | web,auth     |
+|        | GET|HEAD  | school/{school}              | school.show        | App\Http\Controllers\SchoolController@show                             | web,auth     |
+|        | GET|HEAD  | school/{school}/edit         | school.edit        | App\Http\Controllers\SchoolController@edit                             | web,auth     |
+|        | GET|HEAD  | storyboard                   |                    | App\Http\Controllers\StoryboardController@index                        | web,auth     |
+|        | POST      | topic                        | topic.store        | App\Http\Controllers\TopicController@store                             | web,auth     |
+|        | GET|HEAD  | topic                        | topic.index        | App\Http\Controllers\TopicController@index                             | web,auth     |
+|        | GET|HEAD  | topic/create                 | topic.create       | App\Http\Controllers\TopicController@create                            | web,auth     |
+|        | GET|HEAD  | topic/{topic}                | topic.show         | App\Http\Controllers\TopicController@show                              | web,auth     |
+|        | PUT|PATCH | topic/{topic}                | topic.update       | App\Http\Controllers\TopicController@update                            | web,auth     |
+|        | DELETE    | topic/{topic}                | topic.destroy      | App\Http\Controllers\TopicController@destroy                           | web,auth     |
+|        | GET|HEAD  | topic/{topic}/edit           | topic.edit         | App\Http\Controllers\TopicController@edit                              | web,auth     |
++--------+-----------+------------------------------+--------------------+------------------------------------------------------------------------+--------------+
